@@ -9,6 +9,14 @@ module.exports = async function connectDB() {
     await mongoose.connect(uri, {
       serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,
+      maxPoolSize: 10, // Maximum number of connections in the pool
+      minPoolSize: 2,  // Minimum number of connections in the pool
+      maxIdleTimeMS: 30000, // Close connections after 30s of inactivity
+      serverApi: {
+        version: '1',
+        strict: true,
+        deprecationErrors: true,
+      }
     });
     
     console.log("MongoDB connected ✅");

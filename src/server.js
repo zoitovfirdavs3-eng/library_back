@@ -18,8 +18,18 @@ app.use((req, res, next) => {
 
 // CORS configuration
 const allowedOrigins = process.env.NODE_ENV === 'production' 
-  ? ["https://library-front-3lo2.onrender.com"]
-  : ["http://localhost:3000", "http://localhost:3001", "https://library-front-3lo2.onrender.com"];
+  ? [
+      "https://library-front-3lo2.onrender.com",
+      "https://your-production-domain.com", // Replace with your actual domain
+      "https://www.your-production-domain.com" // Replace with www version
+    ]
+  : [
+      "http://localhost:3000", 
+      "http://localhost:3001", 
+      "https://library-front-3lo2.onrender.com",
+      "http://127.0.0.1:3000",
+      "http://127.0.0.1:3001"
+    ];
 
 app.use(cors({
   origin: allowedOrigins,

@@ -1,0 +1,45 @@
+services:
+  # Web Service
+  - type: web
+    name: library-api
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRE
+        value: 7d
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: SUPER_ADMIN_EMAIL
+        sync: false
+      - key: SUPER_ADMIN_PASSWORD
+        sync: false
+
+  # MongoDB Atlas (if using external database)
+  # - type: pserv
+  #   name: mongodb
+  #   plan: free
+  #   env: docker
+  #   repo: https://github.com/render-examples/mongodb.git
+  #   envVars:
+  #     - key: MONGO_INITDB_ROOT_USERNAME
+  #       value: admin
+  #     - key: MONGO_INITDB_ROOT_PASSWORD
+  #       generateValue: true
