@@ -40,6 +40,9 @@ const bookSchema = new Schema(
 
     country: { type: String, trim: true, default: null },
     lang: { type: String, trim: true, default: "uz" },
+    language: { type: String, trim: true, default: "uz" },
+    publisher: { type: String, trim: true, default: null },
+    isbn: { type: String, trim: true, default: null },
 
     price: { type: Number, default: 0, min: 0 },
 
